@@ -42,4 +42,4 @@ class TicketManager {
     };
     this.eventos.push(nuevoEvento);
     }
-}
+}   
