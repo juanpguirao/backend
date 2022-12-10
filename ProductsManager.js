@@ -3,36 +3,40 @@ class ProductManager{
     constructor () {
         this.products = [];
     }
-    addProduct (title, description, price, thumbnail, stock){
+    addProduct (title, description, price, thumbnail, stock, code){
         ProductManager.codeGenerator++;
         const newProduct={
+            id:ProductManager.codeGenerator,
             title,
             description,
             price,
             thumbnail,
             stock,
-            code:ProductManager.codeGenerator,
+            code
         }
-        
-        const productEnable = Object.values(newProduct);
-        const validarValores = productEnable.filter( e=> e !== undefined);
-        const code = this.products.find(c => c.code === productEnable.code);
-        if(validarValores.length < 6){
-          console.error('Faltan Campos que completar');
-          return;
-        }
-        if(code){
-            console.error('Producto Existente');
+
+        if(this.products.find (e => e.code === newProduct.code)){
+            console.log("Producto existente")
             return;
-    }
-        return this.products.push(newProduct);
-        
+        }
+
+        if (newProduct.title === (undefined)
+            ||newProduct.description === (undefined)
+            ||newProduct.price === (undefined)
+            ||newProduct.thumbnail === (undefined)
+            ||newProduct.stock === (undefined)
+            ||newProduct.code === (undefined)           ){
+            console.log( "Debe rellenar todos los campos")
+            return;}
+
+            this.products.push(newProduct);
+            return newProduct;
     }
     getProducts (){
         return this.products;
     }
-    getProductsById(idP){
-        const search = this.products.findIndex(e => e.code === idP);
+    getProductsById(idSearch){
+        const search = this.products.findIndex(e => e.id === idSearch);
         if(search < 0){
             console.error('Not found');
             return;
@@ -43,8 +47,9 @@ class ProductManager{
     };
 const myProductManager = new ProductManager();
 console.log(myProductManager.getProducts());
-console.log(myProductManager.addProduct( 'Prueba','Este es un producto prueba', 200, 'Sin imagen', 25));
-console.log(myProductManager.addProduct('Prueba', 'Este es un producto prueba', 200, 'Sin imagen', 25));
-console.log(myProductManager.addProduct( 'Producto prueba', 200, 'Sin imagen', 25));
+console.log(myProductManager.addProduct( 'Prueba','Este es un producto prueba', 200, 'Sin imagen', 25,1));
+console.log(myProductManager.addProduct('Prueba', 'Este es un producto prueba', 200, 'Sin imagen', 25,2));
+console.log(myProductManager.addProduct( 'Producto prueba', 200, 'Sin imagen', 25,1));
 console.log(myProductManager.getProducts());
+console.log(myProductManager.getProductsById(1));
 console.log(myProductManager.getProductsById(1));
