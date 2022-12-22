@@ -1,0 +1,81 @@
+[
+	{
+		"id": 1,
+		"title": "Alimento para perro A",
+		"description": "Alimento para perro",
+		"code": "1",
+		"price": 8000,
+		"stock": 100,
+		"status": true,
+		"category": "Perros",
+		"thumbnail": [
+			"/alimentoPerro.jpg"
+		]
+	},
+	{
+		"id": 2,
+		"title": "Alimento para perro B",
+		"description": "Alimento para perro",
+		"code": "2",
+		"price": 6000,
+		"stock": 100,
+		"status": true,
+		"category": "Perros",
+		"thumbnail": [
+			"/alimentoPerro2.jpg"
+		]
+	},
+	{
+		"id": 3,
+		"title": "Alimento para perro C",
+		"description": "Alimento para perro",
+		"code": "3",
+		"price": 4000,
+		"stock": 100,
+		"status": true,
+		"category": "Perros",
+		"thumbnail": [
+			"/alimentoPerro2.jpg"
+		]
+	},
+	{
+		"id": 4,
+		"title": "Alimento para gatos A",
+		"description": "Alimento para gatos",
+		"code": "4",
+		"price": 8000,
+		"stock": 100,
+		"status": true,
+		"category": "Gatos",
+		"thumbnail": [
+			"comidaGato1.png"
+		]
+	},
+	{
+		"id": 5,
+		"title": "Alimento para gatos B",
+		"description": "Alimento para gatos",
+		"code": "5",
+		"price": 6000,
+		"stock": 100,
+		"status": true,
+		"category": "Gatos",
+		"thumbnail": [
+			"comidaGato2.png"
+		]
+	},
+	{
+		"id": 6,
+		"title": "Alimento para gatos C",
+		"description": "Alimento para gatos",
+		"code": "6",
+		"price": 4000,
+		"stock": 100,
+		"status": true,
+		"category": "Gatos",
+		"thumbnail": [
+			"comidaGato3.png"
+		]
+	}
+
+]
