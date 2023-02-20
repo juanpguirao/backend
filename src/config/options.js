@@ -1,7 +1,7 @@
 const options = {
     fileSystem: {
-        usersFileName: "users.json",
-        productsFileName: "products.json"
+        usersFileName:"users.json"
+        // productsFileName:"products.json"
     },
     mongoDB:{
         url: ""
