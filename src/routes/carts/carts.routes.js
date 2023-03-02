@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import CartManager from '../../daos/fileManagers/cart.manager.js';
-
+import CartManager from '../../dao/fileSystem/cart.manager.js';
+import options from "../../config/options.js"
 const router = Router()
 
-const cartManager = new CartManager('./carts.json')
+const cartManager = new CartManager(options.fileSystem.cartFileName)
 
 router.get('/:cid',async (req, res) =>{
     const id = Number(req.params.cid)

@@ -1,9 +1,11 @@
 import fs from 'fs/promises'
 import { existsSync } from 'fs';
+import path from "path";
+import __dirname from "../../utils.js";
 
 class ProductManager {
-    constructor(path){
-        this.path = path
+    constructor(filename) {
+        this.filePath = path.join(__dirname,`/files/${filename}`);
     }
 
     async getProducts() {

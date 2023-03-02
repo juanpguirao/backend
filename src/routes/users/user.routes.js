@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { UsersFileManager } from "../../daos/fileManagers/user.manager.js";
+import { UsersFileManager } from "../../dao/fileSystem/user.manager.js";
 import options from '../../config/options.js';
 
 

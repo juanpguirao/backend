@@ -1,10 +1,12 @@
 import fs from 'fs/promises';
 import { existsSync } from'fs';
+import path from "path";
+import __dirname from "../../utils.js";
 // import { all } from '../../routes/app.routers.js';
 
 class CartManager {
-    constructor(path){
-        this.path = path
+    constructor(filename) {
+        this.filePath = path.join(__dirname,`/files/${filename}`);
     }
 
     async getCarts() {

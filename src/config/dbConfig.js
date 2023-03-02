@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import options from './options'
+import options from './options.js'
 
 mongoose.set('strictQuery', false)
 mongoose.connect(options.mongoDB.url, (error) => {

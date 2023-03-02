@@ -7,6 +7,7 @@ import appRouter from './routes/app.routers.js'
 import {Server} from 'socket.io';
 import __dirname from "./utils.js";
 import path from 'path';
+import "./config/dbConfig.js"
 
 const PORT = 8080;
 const app = express();
@@ -15,9 +16,10 @@ const app = express();
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.set('views', __dirname + '/views')
+app.use('/statics', express.static(path.resolve(__dirname, '../public')))
 app.engine('handlebars', handlebars.engine());
 app.set('view engine', 'handlebars');
-app.use('/statics', express.static(path.resolve(__dirname, '../public')))
+app.use('/', appRouter);
 
 // app.use(session({
     //     name: 'start-solo',
@@ -29,7 +31,6 @@ app.use('/statics', express.static(path.resolve(__dirname, '../public')))
         //     }),
         //   }));
         
-        app.use('/', appRouter)
         
         
         // // DB Connections and Listen

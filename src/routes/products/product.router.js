@@ -1,10 +1,10 @@
 import { Router } from 'express'
 import uploader from '../../utils.js';
-import ProductManager from '../../daos/fileManagers/product.manager.js';
-
+import ProductManager from '../../dao/fileSystem/product.manager.js';
+import options from "../../config/options.js"
 const router = Router()
 
-const productManager = new ProductManager('./products.json')
+const productManager = new ProductManager(options.fileSystem.productFileName)
 
 router.get('/', async (req, res)=>{
     const products = await productManager.getProducts()
