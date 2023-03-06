@@ -7,7 +7,8 @@ router.get('/', async (req,res)=>{
     const messages = await messageModel.find().lean()
     res.render('chat', {
         title: "Super Chat!",
-        styles:"chat.css",
+        styles:"index.css",
+        user:"Juan",
         messages})
 })
 

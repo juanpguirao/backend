@@ -1,37 +1,15 @@
-const loginForm = document.getElementById('login-form');
-const registerForm = document.getElementById('register-form');
+const socket = io()
 
-// Events Listeners
-loginForm?.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  const loginFormData = new FormData(loginForm);
-  const loginPayload = Object.fromEntries(loginFormData);
-  fetch("/api/sessions/login", {
-    method: "post",
-    body: JSON.stringify(loginPayload),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }).then(() => window.location.href = '/profile');
-  loginForm.reset();
+let user;
+Swal.fire({
+  title:'Identifiquese',
+  input: 'text',
+  text: 'Ingrese su nombre de usuario',
+  inputValidator: (value) => {return !value && ' Debe ingresar un usuario para continuar'},
+  allowOutsideClick: false,
+  allowEscapeKey: false,
+  padding: '16px'
+}).then((result)=>{
+  user = resul.value;
+  console.log(user)
 })
-
-registerForm?.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  const registerFormData = new FormData(registerForm);
-  const registerPayload = Object.fromEntries(registerFormData);
-  fetch("/api/sessions/register", {
-    method: "post",
-    body: JSON.stringify(registerPayload),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }).then(() => window.location.href = '/profile');
-  registerForm.reset();
-});
-
-const logout = () => {
-  window.location.href = '/api/sessions/logout';
-};

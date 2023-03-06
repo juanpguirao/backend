@@ -14,7 +14,7 @@ router.get('/', async (req, res)=>{
   if(!limit){
       return res.render('home',{
           products: products,
-          style: 'home.css',
+          style: 'index.css',
           title: 'Products'
       })
   }

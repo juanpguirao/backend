@@ -1,4 +1,4 @@
-<div>
+{{!-- <div class="app-banner">
     <h1 class="chat-title">Super Chat!</h1>
     <div id="chat-container">
         <div id="messages-section">
@@ -15,8 +15,18 @@
         </form>
         <button id="clean-button" hidden>Clean Chat</button>
     </div>
-</div>
+</div> --}}
+<div class="app-banner">
+    <h1 class="chat-title">Super Chat!</h1>
+        <div class="container app-chat">
+            <div class="app-chat-input">
+                <input type="text" id="chat-box" placeholder="Escribe aqui.">
+            </div>
+        </div>
+        <div class="app-chat__messages">
 
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script src="/statics/js/chat.js"></script>
+<script src="/js/client.js"></script>
