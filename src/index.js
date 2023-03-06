@@ -37,7 +37,7 @@ app.use('/', appRouter);
         //     }),
         //   }));
         
-                    
+const messages = []         
 
 const io = new Server(httpServer);
         
@@ -45,16 +45,10 @@ const io = new Server(httpServer);
     console.log('new client connected')
     app.set('socket', socket)
     })
-
-    // io.on('login', (user) => {
-    //     socket.emit('message-logs', messages);
-    //     socket.emit('welcome', user);
-    //     socket.broadcast.emit('new-user', user);
-    //     });
         
-    // io.on('message', (data) => {
-    // messages.push(data);
-    // io.emit('message-logs', messages);
-    // })
+    io.on('message', (data) => {
+    messages.push(data);
+    io.emit('message-logs', messages);
+    })
 
 
