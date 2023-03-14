@@ -1,25 +1,25 @@
 import express from 'express';
 import handlebars  from 'express-handlebars';
+import __dirname from "./utils.js";
+import path from 'path';
+import appRouter from './routes/app.routers.js'
 // import mongoose from 'mongoose';
 // import session from 'express-session'
 // import mongoStore from 'connect-mongo'
-import appRouter from './routes/app.routers.js'
 import {Server} from 'socket.io';
-import __dirname from "./utils.js";
-import path from 'path';
 import "./config/dbConfig.js"
 
 
 const PORT = 8080;
 const app = express();
 
+app.engine('handlebars', handlebars.engine());
+app.set('views', path.resolve( __dirname+'/views'));
+app.set('view engine', 'handlebars');
+app.use(express.static (__dirname+'/public'));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname +'/public'));
 
-app.engine('handlebars', handlebars.engine());
-app.set('views', __dirname + './views')
-app.set('view engine', 'handlebars');
 
 const httpServer = app.listen( PORT, ()=>{
     console.log(`Server is running on port ${PORT}`)

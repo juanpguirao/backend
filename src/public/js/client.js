@@ -16,10 +16,14 @@ let user;
     user = resul.value;
     console.log(user)
   })
- chatBox?.addEventListener('ketup',(event)=>{
+ chatBox.addEventListener('keyup',(event)=>{
   if(event.key === "Enter"){
-    if (chatBox.value.trim().length())
-     socket.emit('message', { user:user, message: chatBox.value});
+    if (chatBox.value.trim().length>0)
+     socket.emit('message', { user:user, message:chatBox.value});
      chatBox.value="";
   }
+ })
+
+ socket.on('message-log', (data) =>{
+  
  })
